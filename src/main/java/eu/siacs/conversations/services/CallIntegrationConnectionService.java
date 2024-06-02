@@ -251,8 +251,7 @@ public class CallIntegrationConnectionService extends ConnectionService {
     private static void registerPhoneAccount(final Context context, final Account account) {
             Log.w(
                     Config.LOGTAG,
-                    "could not register phone account for " + account.getJid().asBareJid(),
-                    e);
+                    "could not register phone account");
             ContextCompat.getMainExecutor(context)
                     .execute(() -> showCallIntegrationNotAvailable(context));
     }
@@ -295,8 +294,7 @@ public class CallIntegrationConnectionService extends ConnectionService {
             if (account.isEnabled()) {
                     Log.w(
                             Config.LOGTAG,
-                            "could not register phone account for " + account.getJid().asBareJid(),
-                            e);
+                            "could not register phone account");
             }
         }
     }
