@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - testbringup
+      - main
+      - master
+      - icon
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: automated-build-android-app-with-github-action
+        uses: amirisback/automated-build-android-app-with-github-action@2.2.4
+

@@ -249,16 +249,12 @@ public class CallIntegrationConnectionService extends ConnectionService {
     }
 
     private static void registerPhoneAccount(final Context context, final Account account) {
-        try {
-            registerPhoneAccountOrThrow(context, account);
-        } catch (final IllegalArgumentException e) {
             Log.w(
                     Config.LOGTAG,
                     "could not register phone account for " + account.getJid().asBareJid(),
                     e);
             ContextCompat.getMainExecutor(context)
                     .execute(() -> showCallIntegrationNotAvailable(context));
-        }
     }
 
     private static void showCallIntegrationNotAvailable(final Context context) {
@@ -297,16 +293,10 @@ public class CallIntegrationConnectionService extends ConnectionService {
             final Context context, final Collection<Account> accounts) {
         for (final Account account : accounts) {
             if (account.isEnabled()) {
-                try {
-                    registerPhoneAccountOrThrow(context, account);
-                } catch (final IllegalArgumentException e) {
                     Log.w(
                             Config.LOGTAG,
                             "could not register phone account for " + account.getJid().asBareJid(),
                             e);
-                }
-            } else {
-                unregisterPhoneAccount(context, account);
             }
         }
     }
