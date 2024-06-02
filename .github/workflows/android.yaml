@@ -6,7 +6,7 @@ on:
       - testbringup
       - main
       - master
-      - icon
+      - DisableCallIntegration 
 
 jobs:
 
